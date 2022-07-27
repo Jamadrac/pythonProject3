@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+
 {% load static %}
 {% block body %}
 	<!--single-page-->
@@ -12,22 +13,20 @@
 			</ol>
 			<div class="product-desc">
 				<div class="col-md-7 product-view">
-					<h2>{{product_deatail.name}}</h2>
-					<p> <i class="glyphicon glyphicon-map-marker"></i><a href="#">state</a>, <a href="#">city</a>| Added at {{product_deatail.created}}, Ad ID: 987654321</p>
+					<h2>Lorem Ipsum is simply dummy text of the printing and typesetting industry</h2>
+					<p> <i class="glyphicon glyphicon-map-marker"></i><a href="#">{{product_deatail.city}}</a>, <a href="#">city</a>| Added at 06:55 pm, Ad ID: 987654321</p>
 					<div class="flexslider">
 						<ul class="slides">
 							{% for image in product_images %}
-
-							<li data-thumb="{{image.image.url}}">
-								<img src="{{image.image.url}}" />
-							</li>
-
+								<li data-thumb="{{image.image.url}}">
+									<img src="{{image.image.url}}" />
+								</li>
 							{% endfor %}
 						</ul>
-					</div>
+					</div>0
 					<!-- FlexSlider -->
 					  <script defer src="{% static 'js/jquery.flexslider.js' %}"></script>
-					<link rel="stylesheet" href="{% static 'css/flexslider.css' %}" type="text/css" media="screen" />
+							<link rel="stylesheet"href="{% static 'css/flexslider.css' %}" type="text/css" media="screen" />
 
 						<script>
 					// Can also be used with $(document).ready()
@@ -40,10 +39,9 @@
 					</script>
 					<!-- //FlexSlider -->
 					<div class="product-details">
-						<h4>company name : <a href="#">{{product_deatail.owner}}</a></h4>
+						<h4>Farm store : <a href="#">{{product_deatail.owner}}</a></h4>
 						<h4>Views : <strong>150</strong></h4>
-						<p><strong>Display </strong>: 1.5 inch HD LCD Touch Screen</p>
-						<p><strong>Summary</strong> : {{product_deatail.description}}</p>
+						<p><strong>Summary</strong> : {{product_deatail.condition}}.</p>
 					
 					</div>
 				</div>
@@ -60,13 +58,13 @@
 							<div class="clearfix"></div>
 						</div>
 						<div class="itemtype">
-							<p class="p-price"> class </p>
+							<p class="p-price">class</p>
 							<h4>{{product_deatail.food_type}}</h4>
 							<div class="clearfix"></div>
 						</div>
 					</div>
 					<div class="interested text-center">
-						<h4>Interested in this Ad?<small> Contact the Seller!</small></h4>
+						<h4>Do you want a larger quantity?<small> Contact the Seller!</small></h4>
 						<p><i class="glyphicon glyphicon-earphone"></i>00-85-9875462655</p>
 					</div>
 						<div class="tips">
@@ -88,6 +86,5 @@
 			</div>
 		</div>
 	</div>
-	
-
+	<!--//single-page-->
 {% endblock body %}
