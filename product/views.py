@@ -1,6 +1,6 @@
 from unicodedata import category
 from django.shortcuts import render
-from django.core.paginator import  Paginator
+from django.core.paginator import Paginator
 from.models import Product, ProductImages, Category
 from django.db.models import Count
 
@@ -15,11 +15,15 @@ def productlist(request,category_slug=None):
     if category_slug :
         category = Category.objects.all()
         productlist = productlist.filter(category=category)
+    
 
+    page_number = request.GET.get('page')
+    productlist = paginator.get_page(page_number)
     template = 'Product/product_list.html'
-    paginator = Paginator(productlist, 3)
+    paginator = Paginator(productlist, 2) # Show 25 contacts per page.
     page = request.GET.get('page')
     productlist = paginator.get_page(page)
+    
     context = {'product_list' : productlist, 'category_list' : categorylist}
     return render(request, template, context)
 
