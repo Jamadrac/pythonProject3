@@ -25,8 +25,8 @@ def productlist(request,category_slug=None):
     
 
    
-    context = {'product_list' : productlist, 'category_list' : categorylist}
-    return render(request, template, {'product_list' : productlist}, context)
+    context = {'product_list' : productlist, 'category_list' : categorylist, 'product_list' : productlist,}
+    return render(request, template,  context)
 
 def productdetail(request, product_slug):
     productdetail = Product.objects.get(slug=product_slug)
