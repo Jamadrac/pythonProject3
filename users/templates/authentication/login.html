@@ -1,16 +1,36 @@
 {% extends 'base.html' %}
-{% load static %}
 
+{% load static %}
 {% block body %}
 
-	<div class="total-ads main-grid-border">
+<div class="header">
 		<div class="container">
-			<div class="select-box">
-				<div class="select-city-for-local-ads ads-list">
-					<label>Select your city to see local ads</label>
-						<select>
+			<div class="logo">
+				<a href="index.html"><span>Re</span>sale</a>
+			</div>
+			<div class="header-right">
+			<a class="account" href="login.html">My Account</a>
+			<span class="active uls-trigger">Select language</span>
+	<!-- Large modal -->
+			<div class="selectregion">
+				<button class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+				Select Your Region</button>
+					<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+					aria-hidden="true">
+						<div class="modal-dialog modal-lg">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+										&times;</button>
+									<h4 class="modal-title" id="myModalLabel">
+										Please Choose Your Location</h4>
+								</div>
+								<div class="modal-body">
+									 <form class="form-horizontal" role="form">
+										<div class="form-group">
+											<select id="basic2" class="show-tick form-control" multiple>
 												<optgroup label="Popular Cities">
-													<option selected style="display:none;color:#eee;">Entire USA</option>
+													<option selected style="display:none;color:#eee;">Select City</option>
 													<option>Birmingham</option>
 													<option>Anchorage</option>
 													<option>Phoenix</option>
@@ -378,170 +398,56 @@
 														<option>Rock Springs</option>
 													</optgroup>			
 												</optgroup>
-			            </select>
-				</div>
-				<div class="browse-category ads-list">
-					<label>Browse Categories</label>
-					<select class="selectpicker show-tick" data-live-search="true">
-					  <option data-tokens="Mobiles">All</option>
-					  <option data-tokens="Mobiles">Mobiles</option>
-					  <option data-tokens="Electronics & Appliances">Electronics & Appliances</option>
-					  <option data-tokens="Cars">Cars</option>
-					  <option data-tokens="Bikes">Bikes</option>
-					  <option data-tokens="Furniture">Furniture</option>
-					  <option data-tokens="Pets">Pets</option>
-					  <option data-tokens="Books, Sports & Hobbies">Books, Sports & Hobbies</option>
-					  <option data-tokens="Fashion">Fashion</option>
-					  <option data-tokens="Kids">Kids</option>
-					  <option data-tokens="Services">Services</option>
-					  <option data-tokens="Jobs">Jobs</option>
-					  <option data-tokens="Real Estate">Real Estate</option>
-					</select>
-				</div>
-				<div class="search-product ads-list">
-					<label>Search for a specific product</label>
-					<div class="search">
-						<div id="custom-search-input">
-						<div class="input-group">
-							<input type="text" class="form-control input-lg" placeholder="Buscar" />
-							<span class="input-group-btn">
-								<button class="btn btn-info btn-lg" type="button">
-									<i class="glyphicon glyphicon-search"></i>
-								</button>
-							</span>
-						</div>
-					</div>
-					</div>
-				</div>
-				<div class="clearfix"></div>
-			</div>
-			<div class="all-categories">
-				<h3> Select your category and find the perfect ad</h3>
-					<ul class="all-cat-list">
-						{% for  category in category_list %}
-							<li><a href="mobiles.html">{{category}} <span class="num-of-ads">(5,78,076)</span></a></li>
-						{% endfor %}
-					</ul>
-			</div>
-			<ol class="breadcrumb" style="margin-bottom: 5px;">
-			  <li><a href="index.html">Home</a></li>
-			  <li class="active">All Ads</li>
-			</ol>
-			<div class="ads-grid">
-				<div class="side-bar col-md-3">
-					<div class="search-hotel">
-					<h3 class="sear-head">Name contains</h3>
-					<form>
-						<input type="text" value="Product name..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Product name...';}" required="">
-						<input type="submit" value=" ">
-					</form>
-				</div>
-				<div class="featured-ads">
-					<h2 class="sear-head fer">Featured Ads</h2>
-					<div class="featured-ad">
-						<a href="single.html">
-							<div class="featured-ad-left">
-								<img src="images/f1.jpg" title="ad image" alt="" />
-							</div>
-							<div class="featured-ad-right">
-								<h4>Lorem Ipsum is simply dummy text of the printing industry</h4>
-								<p>$ 450</p>
-							</div>
-							<div class="clearfix"></div>
-						</a>
-					</div>
-					<div class="featured-ad">
-						<a href="single.html">
-							<div class="featured-ad-left">
-								<img src="images/f2.jpg" title="ad image" alt="" />
-							</div>
-							<div class="featured-ad-right">
-								<h4>Lorem Ipsum is simply dummy text of the printing industry</h4>
-								<p>$ 380</p>
-							</div>
-							<div class="clearfix"></div>
-						</a>
-					</div>
-					<div class="featured-ad">
-						<a href="single.html">
-							<div class="featured-ad-left">
-								<img src="images/f3.jpg" title="ad image" alt="" />
-							</div>
-							<div class="featured-ad-right">
-								<h4>Lorem Ipsum is simply dummy text of the printing industry</h4>
-								<p>$ 560</p>
-							</div>
-							<div class="clearfix"></div>
-						</a>
-					</div>
-					<div class="clearfix"></div>
-				</div>
-				</div>
-				<div class="ads-display col-md-9">
-					<div class="wrapper">					
-					<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
-					  <div id="myTabContent" class="tab-content">
-						<div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
-						   <div>
-												<div id="container">
-								<div class="clearfix"></div>
-							    <ul class="list">
-									{% for product in product_list %}
-								<a href="{% url 'products:product_detail' product.slug %}">
-									<li>
-									<img src="{{ product.image.url }}" title="" alt="" />
-									<section class="list-left">
-									<h5 class="title">{{product.name}}</h5>
-									<span class="adprice">K{{ product.price }}</span>
-									<p class="catpath">farm group » {{product.category}}</p>
-									</section>
-									<section class="list-right">
-									<span class="date">{{product.created}}</span>
-									<span class="cityname">{{product.city_name}}</span>
-									</section>
-									<div class="clearfix"></div>
-									</li> 
-									<div class="clearfix"></div>
-								</a>
-									{% endfor %}
-							</ul>
-						</div>
+											</select>
+										</div>
+									  </form>    
+								</div>
 							</div>
 						</div>
-							{% if Product_list.has_other_pages %}
-								<ul class="pagination pagination-sm">
-									{% if product_list.has_previous %}
-										<li><a href="?page={{ product_list.next_page_number }}">Prev</a></li>
-									{% else %}
-										<li class="disabled"></li>> 
-									{% endif %}
-
-
-									{% for pages in product_list.paginator.page_range %}
-										{% if product_list.number == pages %}
-											<li><a href="#">{{pages}}</a></li>
-										{% else %}
-											<li><a href="?page{{pages}}">{{pages}}</a></li>
-										{% endif %}
-									{% endfor %}
-
-										
-
-									{% if product_list.has_next %}
-										<li><a href="?page={{ product_list.next_page_number }}">Next</a></li>
-										{% else %}
-										<li class="disabled"></li>> ``
-									{% endif %}
-								</ul>
-							{% endif %}	
-					  </div>
 					</div>
-				</div>
-				</div>
-				<div class="clearfix"></div>
+				<script>
+				$('#myModal').modal('');
+				</script>
 			</div>
-		</div>	
+		</div>
+		</div>
 	</div>
-	<!-- // Products -->
+	 <section>
+			<div id="page-wrapper" class="sign-in-wrapper">
+				<div class="graphs">
+					<div class="sign-in-form">
+						<div class="sign-in-form-top">
+							<h1>Log in</h1>
+						</div>
+						<div class="signin">
+							<div class="signin-rit">
+								<span class="checkbox1">
+									 <label class="checkbox"><input type="checkbox" name="checkbox" checked="">Forgot Password ?</label>
+								</span>
+								<p><a href="#">Click Here</a> </p>
+								<div class="clearfix"> </div>
+</div>
 
-{% endblock body %} 
+	<form action="login" method="post">
+		{% csrf_token %}
+		<h1> This is your log in page login </h1>
+		<input type="text" name="username" placeholder="enter username"><br>
+		<input type="password" name="password" placeholder="password"><br>
+		<button type="submit">login</button>
+	</form>
+	<div>
+		{% for message in messages %}
+			 <h2>{{message}}</h2>
+		{% endfor %}
+	</div> 
+						</div>
+						<div class="new_people">
+							<h2>For New People</h2>
+							<p>Having hands on experience in creating innovative designs,I do offer design 
+								solutions which harness.</p>
+							<a href="register.html">Register Now!</a>
+						</div>
+					</div>
+				</div>
+			</div>
+{% endblock body %}

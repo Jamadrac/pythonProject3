@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration form</title>
+    <style>
+            *{
+        margin:0;
+        padding:0;
+        font-family:sans-serif;
+        box-sizing: border-box;
+    }
+    body{
+        display: flex;
+        justify-content: center;
+        align-items:center;
+        flex-direction: column;
+        height: 100hv;
+        background:linear-gradient(rgba(0,0,0,0.5),rgb(0,0,0,0.5),rgb(0,0,0,0.5)), url();
+        background-size:cover;
+
+
+    }
+    form{
+        margin-top: 50px;
+        text-align:center;
+    }
+    input{
+        display: block;
+        width:350px;
+        height: 40px;
+        margin:20px;
+        border:none;
+        outline: none;
+        font-size:20px;
+        border-bottom:1px solid black;
+        background:transparent;
+        color:white;
+
+    }
+    button{
+        width: 350px;
+        height:40px;
+        font-size:20px;
+        background-color:#777;
+        border: none;
+        color:white;
+        margin-top: 30px;
+    }
+    form h1{
+        margin-bottom: 30px;
+        color: white;
+    }
+    ::placeholder{
+        color: silver;
+    }
+    a {
+        color:black;
+    }
+
+
+    </style>
+</head>
+<body>
+<form action="register" method="post">
+    {% csrf_token %}
+    <h1> Welcome to our Register </h1>
+    <input type="text" name="username" placeholder="enter username"><br>
+    <input type="text" name="email" placeholder="enter email"><br>
+    <input type="password" name="password1" placeholder="password"><br>
+    <input type="password" name="password2" placeholder="confirm password"><br>
+    <button type="submit">Register</button>
+</form>
+<div>
+    {% for message in messages %}
+         <h2>{{message}}</h2>
+    {% endfor %}
+</div>
+
+</body>
+</html>

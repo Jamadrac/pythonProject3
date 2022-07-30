@@ -15,17 +15,18 @@ def productlist(request,category_slug=None):
     if category_slug :
         category = Category.objects.all()
         productlist = productlist.filter(category=category)
-    
+    template = 'Product/product_list.html'
 
+    
+    
+    paginator = Paginator(productlist, 2) # Show 25 contacts per page.
     page_number = request.GET.get('page')
     productlist = paginator.get_page(page_number)
-    template = 'Product/product_list.html'
-    paginator = Paginator(productlist, 2) # Show 25 contacts per page.
-    page = request.GET.get('page')
-    productlist = paginator.get_page(page)
     
+
+   
     context = {'product_list' : productlist, 'category_list' : categorylist}
-    return render(request, template, context)
+    return render(request, template, {'product_list' : productlist}, context)
 
 def productdetail(request, product_slug):
     productdetail = Product.objects.get(slug=product_slug)
