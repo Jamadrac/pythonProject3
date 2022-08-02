@@ -10,7 +10,9 @@ from django.utils.text import slugify
 class Category(models.Model):
     Category_name = models.CharField(max_length=50)
     image = models.ImageField(upload_to='products/', blank=True, null=True)
+
     slug = models.SlugField(blank=True, null=True)
+
 
     def save(self, *args, **kwargs):
         if not self.slug and self.Category_name:
