@@ -11,13 +11,6 @@ class Category(models.Model):
     Category_name = models.CharField(max_length=50)
     image = models.ImageField(upload_to='products/', blank=True, null=True)
 
-    slug = models.SlugField(blank=True, null=True)
-
-
-    def save(self, *args, **kwargs):
-        if not self.slug and self.Category_name:
-            self.slug = slugify(self.Category_name)
-        super(Category, self).save (*args, **kwargs) 
 
     class Meta:
         verbose_name = 'category'
