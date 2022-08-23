@@ -47,13 +47,13 @@ label{
 	margin:0;
 }
 .banner {
-	background:url('../images/banner.jpg') no-repeat 0px 0px;
+	background:url('../images/banner.jpeg') no-repeat 0px 0px;
 	background-size:cover;
 	min-height:240px;
 	padding:45px 0 0 0;
 }
 .main-banner {
-	background:url('../images/banner.jpg') no-repeat 0px 0px;
+	background:url('../images/banner.jpeg') no-repeat 0px 0px;
 	background-size:cover;
 	min-height:400px;
 	padding:100px 0 0 0;
@@ -198,11 +198,11 @@ li.dropdown-header {
 .logo a {
 	font-family: 'Ubuntu Condensed', sans-serif;
 	font-size: 50px;
-    color: #01a185;
+    color: #d6c912;
 	text-decoration:none;
 }
 .logo a span {
-	color:#f3c500;
+	color: #04f300;
 }
 a.account {
     float: left;
@@ -1142,11 +1142,11 @@ ul.location li:nth-child(2) {
 .footer-logo a {
     font-family: 'Ubuntu Condensed', sans-serif;
     font-size: 40px;
-    color: #01a185;
+    color: #d6c912;
     text-decoration: none;
 }
 .footer-logo a span {
-    color: #f3c500;
+    color:  #04f300;
 }
 .footer-logo a {
 	position:relative;

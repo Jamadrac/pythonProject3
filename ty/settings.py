@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 import os 
 from pathlib import Path
+import django_heroku
+import dj_database_url
+from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,17 +28,13 @@ SECRET_KEY = 'django-insecure-khy)t$wjc^8rl6ubi7wz4103&_3-@elj37(j8*3h=jdr%g%g&9
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [
-    '192.168.159.200',
-    '127.0.0.1',
-    '192.168.247.107'             
-]
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
 
 INSTALLED_APPS = [
-   # 'accounts',
+    'accounts',
     'product.apps.ProductConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -45,8 +44,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
    
     'bootstrap4',
-    'users',
-     'home',
+    #'users',
+    'home',
+    'farmer',
+
+
 
 ]
 
@@ -156,6 +158,7 @@ STATICFILES_DIRS = [
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT =  os.path.join(BASE_DIR, "media" )
+django_heroku.settings(locals())
 
 
 LOGIN_REDIRECT_URL = '/'

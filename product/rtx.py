@@ -1,0 +1,2 @@
+name = 'tigers'
+print (name)

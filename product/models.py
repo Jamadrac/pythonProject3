@@ -1,4 +1,5 @@
 from distutils.command.upload import upload
+from unicodedata import category
 from django.db import models
 from django.conf import settings
 from django.contrib.auth.models import User
@@ -7,17 +8,26 @@ from django.utils.text import slugify
 
 # Create your models here.
 
-class Category(models.Model):
-    Category_name = models.CharField(max_length=50)
-    image = models.ImageField(upload_to='products/', blank=True, null=True)
 
+class Category(models.Model):
+    ## for product category
+    category_name = models.CharField(max_length=50)
+    image = models.ImageField(upload_to='category/' , blank=True , null=True)
+
+    slug = models.SlugField(blank=True  , null=True)
+
+
+    def save(self , *args , **kwargs):
+        if not self.slug and self.category_name :
+            self.slug = slugify(self.category_name)
+        super(Category , self).save(*args , **kwargs)
 
     class Meta:
         verbose_name = 'category'
         verbose_name_plural = 'categories'
 
     def __str__(self):
-        return self.Category_name
+        return self.category_name
 
 
 class type(models.Model):

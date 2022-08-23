@@ -1,13 +1,16 @@
 from django.shortcuts import render
-from product.models import Product , Category
+#from product.models import Product , Category
 # Create your views here.
 
-def home(request):
+#@login_required
+def dashboard(request):
     
-    all_category = Category.objects.all() 
-    products = Product.objects.all()
+    #products = Product.objects.all()
+    #all_category = Category.objects.all() 
+ #   current_user = request.User
 
-    template = 'dashbord.html'
-    context = { 'all_category' : all_category , 'products' : products}
 
-    return render(request , template , context)
+    template = 'dashboard.html'
+    #context = { 'all_category' : all_category , 'products' : products}
+
+    return render(request , template ,)
